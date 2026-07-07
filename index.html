@@ -16,10 +16,10 @@
 
   <!-- FIXED VIDEO BACKGROUND -->
   <div id="video-bg">
-    <video id="video-forward" autoplay muted playsinline style="opacity: 1; z-index: 1;">
+    <video id="video-forward" autoplay muted playsinline style="opacity: 1; z-index: 2;">
       <source src="Untitled design.mp4" type="video/mp4">
     </video>
-    <video id="video-reverse" muted playsinline style="opacity: 0; z-index: 0;">
+    <video id="video-reverse" muted playsinline style="opacity: 1; z-index: 1;">
       <source src="Untitled design_reversed.mp4" type="video/mp4">
     </video>
   </div>
@@ -368,13 +368,22 @@
     const videoRev = document.getElementById('video-reverse');
 
     if (videoFwd && videoRev) {
+      // Ensure both have opacity 1 so browser compositor keeps decoders active
+      videoFwd.style.opacity = '1';
+      videoRev.style.opacity = '1';
+
+      // Set initial stack order
+      videoFwd.style.zIndex = '2';
+      videoRev.style.zIndex = '1';
+
       videoFwd.addEventListener('ended', () => {
         videoRev.currentTime = 0;
         videoRev.play().then(() => {
-          videoFwd.style.opacity = '0';
-          videoFwd.style.zIndex = '0';
-          videoRev.style.opacity = '1';
-          videoRev.style.zIndex = '1';
+          // Swap z-indexes to bring reverse video to front
+          videoRev.style.zIndex = '2';
+          videoFwd.style.zIndex = '1';
+          // Pause forward video to save resources
+          videoFwd.pause();
         }).catch(err => {
           console.log("Video rev play error:", err);
           videoFwd.currentTime = 0;
@@ -385,10 +394,11 @@
       videoRev.addEventListener('ended', () => {
         videoFwd.currentTime = 0;
         videoFwd.play().then(() => {
-          videoRev.style.opacity = '0';
-          videoRev.style.zIndex = '0';
-          videoFwd.style.opacity = '1';
-          videoFwd.style.zIndex = '1';
+          // Swap z-indexes to bring forward video to front
+          videoFwd.style.zIndex = '2';
+          videoRev.style.zIndex = '1';
+          // Pause reverse video to save resources
+          videoRev.pause();
         }).catch(err => {
           console.log("Video fwd play error:", err);
           videoRev.currentTime = 0;
@@ -396,12 +406,12 @@
         });
       });
 
-      // Safety check: trigger loop transition if browser stalls on final frame in background
+      // Safety check: trigger loop transition if browser stalls in background
       setInterval(() => {
-        if (parseFloat(videoFwd.style.opacity) > 0.5 && (videoFwd.ended || videoFwd.currentTime >= videoFwd.duration - 0.1)) {
+        if (videoFwd.style.zIndex === '2' && (videoFwd.ended || videoFwd.currentTime >= videoFwd.duration - 0.1)) {
           videoFwd.dispatchEvent(new Event('ended'));
         }
-        if (parseFloat(videoRev.style.opacity) > 0.5 && (videoRev.ended || videoRev.currentTime >= videoRev.duration - 0.1)) {
+        if (videoRev.style.zIndex === '2' && (videoRev.ended || videoRev.currentTime >= videoRev.duration - 0.1)) {
           videoRev.dispatchEvent(new Event('ended'));
         }
       }, 500);
