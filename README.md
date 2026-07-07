@@ -7,3 +7,4 @@ Aurora Nova is a futuristic landing page for a hardware company that offers AI t
 - **Styling:** Vanilla CSS3 (Custom design system based on `DESIGN.md` tokens, responsive grid/flexbox layouts, glassmorphism filters, scroll-triggered animations)
 - **Interactions:** Vanilla JavaScript (Scroll animations, mobile navigation drawer)
 - **Video:** GPU-accelerated video background with performance fallback
+

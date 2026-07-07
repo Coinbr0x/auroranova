@@ -46,14 +46,19 @@ body {
   overflow: hidden;
 }
 #video-bg video {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%; height: 100%;
   object-fit: cover;
+  transition: opacity 0.25s ease-in-out, z-index 0.25s;
 }
 #video-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.5);
+  z-index: 2; /* Keep dark overlay on top of both videos */
+  pointer-events: none;
 }
 
 /* ── NAV ── */

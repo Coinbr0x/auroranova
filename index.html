@@ -16,8 +16,11 @@
 
   <!-- FIXED VIDEO BACKGROUND -->
   <div id="video-bg">
-    <video autoplay muted loop playsinline>
+    <video id="video-forward" autoplay muted playsinline style="opacity: 1; z-index: 1;">
       <source src="Untitled design.mp4" type="video/mp4">
+    </video>
+    <video id="video-reverse" muted playsinline style="opacity: 0; z-index: 0;">
+      <source src="Untitled design_reversed.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -360,45 +363,48 @@
       }
     });
 
-    // Custom seamless video looping (yoyo)
-    const video = document.querySelector('#video-bg video');
-    if (video) {
-      video.removeAttribute('loop');
-      let direction = 1; // 1 = forward, -1 = reverse
-      let lastTime = performance.now();
+    // Custom seamless video looping (yoyo) using dual videos
+    const videoFwd = document.getElementById('video-forward');
+    const videoRev = document.getElementById('video-reverse');
 
-      function step(now) {
-        if (!lastTime) lastTime = now;
-        let delta = (now - lastTime) / 1000;
-        if (delta > 0.1) {
-          delta = 0.016; // Cap delta to prevent large skips
-        }
-        lastTime = now;
-
-        if (video.duration) {
-          if (direction === -1) {
-            let newTime = video.currentTime - delta;
-            if (newTime <= 0) {
-              newTime = 0;
-              direction = 1;
-              video.play().catch(() => {});
-            }
-            video.currentTime = newTime;
-          } else {
-            if (video.ended || video.currentTime >= video.duration - 0.1) {
-              direction = -1;
-              video.pause();
-            }
-          }
-        }
-        requestAnimationFrame(step);
-      }
-
-      video.addEventListener('play', () => {
-        lastTime = performance.now();
+    if (videoFwd && videoRev) {
+      videoFwd.addEventListener('ended', () => {
+        videoRev.currentTime = 0;
+        videoRev.play().then(() => {
+          videoFwd.style.opacity = '0';
+          videoFwd.style.zIndex = '0';
+          videoRev.style.opacity = '1';
+          videoRev.style.zIndex = '1';
+        }).catch(err => {
+          console.log("Video rev play error:", err);
+          videoFwd.currentTime = 0;
+          videoFwd.play().catch(()=>{});
+        });
       });
 
-      requestAnimationFrame(step);
+      videoRev.addEventListener('ended', () => {
+        videoFwd.currentTime = 0;
+        videoFwd.play().then(() => {
+          videoRev.style.opacity = '0';
+          videoRev.style.zIndex = '0';
+          videoFwd.style.opacity = '1';
+          videoFwd.style.zIndex = '1';
+        }).catch(err => {
+          console.log("Video fwd play error:", err);
+          videoRev.currentTime = 0;
+          videoRev.play().catch(()=>{});
+        });
+      });
+
+      // Safety check: trigger loop transition if browser stalls on final frame in background
+      setInterval(() => {
+        if (parseFloat(videoFwd.style.opacity) > 0.5 && (videoFwd.ended || videoFwd.currentTime >= videoFwd.duration - 0.1)) {
+          videoFwd.dispatchEvent(new Event('ended'));
+        }
+        if (parseFloat(videoRev.style.opacity) > 0.5 && (videoRev.ended || videoRev.currentTime >= videoRev.duration - 0.1)) {
+          videoRev.dispatchEvent(new Event('ended'));
+        }
+      }, 500);
     }
   </script>
 
