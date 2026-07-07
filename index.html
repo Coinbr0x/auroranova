@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Nova — AI Training Infrastructure in Space</title>
+  <meta name="description" content="Aurora Nova offers AI model training on orbital server clusters at competitive prices. Zero cooling costs. Unlimited scale. Train in space.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23faff69'/></svg>">
+</head>
+<body>
+
+<!-- FIXED VIDEO BACKGROUND -->
+<div id="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="Untitled design.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- ══════════════ TOP NAV ══════════════ -->
+<nav class="top-nav" id="top-nav">
+  <div class="nav-logo">
+    <div class="logo-icon"><span>✦</span></div>
+    Aurora Nova
+  </div>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#solution">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════ HERO — ATTENTION ══════════════ -->
+<section class="section hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge animate-in">🚀 Now accepting orbital compute reservations</div>
+      <h1 class="animate-in delay-1">Train AI models <span class="highlight">in space.</span></h1>
+      <p class="hero-sub animate-in delay-2">Aurora Nova operates server clusters in low-Earth orbit — delivering AI training at a fraction of terrestrial costs. No cooling bills. No energy bottlenecks. Just pure, orbital compute power.</p>
+      <div class="hero-buttons animate-in delay-3">
+        <a href="#cta" class="btn-primary">Book a Call →</a>
+        <a href="#solution" class="btn-secondary">See How It Works</a>
+      </div>
+    </div>
+    <div class="hero-stats animate-in delay-4">
+      <div class="stat-card">
+        <div class="stat-number">94%</div>
+        <div class="stat-label">Lower Cooling Costs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Orbital Clusters</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3.2k</div>
+        <div class="stat-label">GPUs in Orbit</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">99.97%</div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TRUST STRIP ══════════════ -->
+<div class="section" style="padding-top: 0; padding-bottom: 0;">
+  <div class="section-glass" style="padding: 32px 48px;">
+    <div class="trust-strip" style="opacity: 0.6;">
+      <div class="trust-logo">NASA</div>
+      <div class="trust-logo">SpaceX</div>
+      <div class="trust-logo">DeepMind</div>
+      <div class="trust-logo">OpenAI</div>
+      <div class="trust-logo">Mistral</div>
+      <div class="trust-logo">Meta AI</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ PROBLEM — INTEREST ══════════════ -->
+<section class="section" id="problem">
+  <div class="section-glass">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">AI training is hitting a wall on Earth.</h2>
+    <p class="section-sub">Data centers consume 4% of global electricity. Cooling alone devours 40% of that. As models scale to trillions of parameters, the physics of terrestrial compute are breaking down.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="card-icon">🔥</div>
+        <h3>Thermal Bottleneck</h3>
+        <p>GPUs generate extreme heat. Terrestrial data centers spend billions on cooling infrastructure that still can't keep up with next-gen chip densities.</p>
+      </div>
+      <div class="problem-card">
+        <div class="card-icon">⚡</div>
+        <h3>Energy Crisis</h3>
+        <p>A single large model training run can consume the annual electricity of a small city. Power grids are buckling under AI demand, and costs are skyrocketing.</p>
+      </div>
+      <div class="problem-card">
+        <div class="card-icon">📍</div>
+        <h3>GPU Scarcity</h3>
+        <p>Wait times for H100 clusters stretch to 6+ months. Hyperscalers hoard capacity. Startups and researchers are priced out of the game entirely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SOLUTION — HOW IT WORKS ══════════════ -->
+<section class="section" id="solution">
+  <div class="section-glass">
+    <div class="section-label">The Solution</div>
+    <h2 class="section-title">Compute, untethered from Earth.</h2>
+    <p class="section-sub">Our orbital server clusters leverage the vacuum of space for passive cooling, solar power for unlimited energy, and zero-gravity chip architectures for unmatched density.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <h3>Upload Your Model</h3>
+        <p>Push your training job through our CLI or API. We handle the rest — data is laser-linked to our orbital cluster in under 200ms round-trip.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <h3>Train in Orbit</h3>
+        <p>Your model trains on space-cooled GPUs with direct solar power. No thermal throttling. No energy caps. Just raw, uninterrupted compute cycles.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <h3>Download Results</h3>
+        <p>Checkpoints, weights, and logs stream back to your infrastructure in real-time via our laser downlink. Full observability, zero surprise bills.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURES — DESIRE ══════════════ -->
+<section class="section" id="features">
+  <div class="section-glass">
+    <div class="section-label">Why Aurora Nova</div>
+    <h2 class="section-title">Built for the next era of AI.</h2>
+    <p class="section-sub">Every system designed from first principles for orbital compute — not a terrestrial data center duct-taped to a satellite.</p>
+    <div class="features-list">
+      <div class="feature-item">
+        <div class="feature-icon">❄️</div>
+        <div>
+          <h4>Passive Vacuum Cooling</h4>
+          <p>Space is -270°C. Our radiative heat sinks dissipate GPU thermals passively — no chillers, no water, no energy wasted on cooling.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">☀️</div>
+        <div>
+          <h4>Unlimited Solar Power</h4>
+          <p>Each cluster deploys 4,800m² of solar arrays delivering continuous power. No grid dependency. No carbon footprint.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔗</div>
+        <div>
+          <h4>Laser Uplink / Downlink</h4>
+          <p>Optical inter-satellite links and ground-to-orbit laser comm deliver sub-200ms latency with 400 Gbps throughput per beam.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🛡️</div>
+        <div>
+          <h4>Sovereign Data Isolation</h4>
+          <p>Your training data lives in orbit — physically unreachable by any jurisdiction. True airgap security, literally above the law.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📊</div>
+        <div>
+          <h4>Real-Time Observability</h4>
+          <p>Full Prometheus + Grafana dashboards for every training run. GPU utilization, loss curves, and checkpoint status — all streamed live from orbit.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔄</div>
+        <div>
+          <h4>Elastic Scaling</h4>
+          <p>Scale from 8 to 2,048 GPUs mid-run. Our orbital mesh redistributes workloads across clusters with zero-downtime rebalancing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PRICING — DESIRE ══════════════ -->
+<section class="section" id="pricing">
+  <div style="max-width: 1280px; margin: 0 auto;">
+    <div class="section-label" style="text-align: center;">Pricing</div>
+    <h2 class="section-title" style="text-align: center;">Compute that doesn't cost the Earth.</h2>
+    <p class="section-sub" style="text-align: center; margin: 0 auto 0;">Transparent per-GPU-hour pricing. No egress fees. No cooling surcharges. What you see is what you pay.</p>
+    <div class="pricing-grid">
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="pricing-badge">Starter</div>
+        <div class="pricing-plan">Orbit Lite</div>
+        <div class="pricing-price">$1.20<span> /GPU-hr</span></div>
+        <p class="pricing-desc">Perfect for researchers and small teams running experiments and fine-tuning jobs.</p>
+        <ul class="pricing-features">
+          <li>Up to 64 GPUs per job</li>
+          <li>Standard laser uplink (100 Gbps)</li>
+          <li>Community support</li>
+          <li>Basic observability dashboard</li>
+          <li>7-day checkpoint retention</li>
+        </ul>
+        <a href="#cta" class="btn-pricing">Get Started</a>
+      </div>
+      <!-- Pro — Featured -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-plan">Orbit Pro</div>
+        <div class="pricing-price">$0.85<span> /GPU-hr</span></div>
+        <p class="pricing-desc">For teams training production models at scale. Volume pricing, priority scheduling.</p>
+        <ul class="pricing-features">
+          <li>Up to 512 GPUs per job</li>
+          <li>Priority laser uplink (400 Gbps)</li>
+          <li>Dedicated support engineer</li>
+          <li>Full Prometheus + Grafana</li>
+          <li>30-day checkpoint retention</li>
+          <li>Multi-cluster redundancy</li>
+        </ul>
+        <a href="#cta" class="btn-pricing">Book a Call</a>
+      </div>
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <div class="pricing-badge">Enterprise</div>
+        <div class="pricing-plan">Orbit Max</div>
+        <div class="pricing-price">Custom</div>
+        <p class="pricing-desc">Dedicated orbital capacity with sovereign data isolation and custom SLAs.</p>
+        <ul class="pricing-features">
+          <li>Up to 2,048+ GPUs</li>
+          <li>Dedicated orbital cluster</li>
+          <li>24/7 mission control support</li>
+          <li>Custom data residency</li>
+          <li>Unlimited checkpoint retention</li>
+          <li>Private laser frequency</li>
+        </ul>
+        <a href="#cta" class="btn-pricing">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA — ACTION ══════════════ -->
+<section class="section" id="cta">
+  <div class="cta-band">
+    <h2>Ready to train beyond the atmosphere?</h2>
+    <p>Book a 30-minute call with our orbital compute team. We'll design a training plan that fits your model, your timeline, and your budget.</p>
+    <a href="#" class="btn-dark" id="book-call-btn">Book Your Call →</a>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="logo-icon"><span>✦</span></div>
+        Aurora Nova
+      </div>
+      <p>Orbital AI infrastructure for the next generation of model training. Headquartered in Zurich, operating in low-Earth orbit.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#solution">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#">Documentation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Compliance</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Aurora Nova. All rights reserved.</span>
+    <span>Built for orbit. Priced for Earth.</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-in, .problem-card, .step-card, .feature-item, .pricing-card, .stat-card').forEach(el => {
+    el.classList.add('animate-in');
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    if (navLinks.style.display === 'flex') {
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.display = 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '64px';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.background = 'rgba(10,10,10,0.95)';
+      navLinks.style.padding = '24px';
+      navLinks.style.gap = '16px';
+      navLinks.style.backdropFilter = 'blur(16px)';
+    }
+  });
+</script>
+
+</body>
+</html>
