@@ -359,6 +359,47 @@
         navLinks.style.backdropFilter = 'blur(16px)';
       }
     });
+
+    // Custom seamless video looping (yoyo)
+    const video = document.querySelector('#video-bg video');
+    if (video) {
+      video.removeAttribute('loop');
+      let direction = 1; // 1 = forward, -1 = reverse
+      let lastTime = performance.now();
+
+      function step(now) {
+        if (!lastTime) lastTime = now;
+        let delta = (now - lastTime) / 1000;
+        if (delta > 0.1) {
+          delta = 0.016; // Cap delta to prevent large skips
+        }
+        lastTime = now;
+
+        if (video.duration) {
+          if (direction === -1) {
+            let newTime = video.currentTime - delta;
+            if (newTime <= 0) {
+              newTime = 0;
+              direction = 1;
+              video.play().catch(() => {});
+            }
+            video.currentTime = newTime;
+          } else {
+            if (video.ended || video.currentTime >= video.duration - 0.1) {
+              direction = -1;
+              video.pause();
+            }
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      video.addEventListener('play', () => {
+        lastTime = performance.now();
+      });
+
+      requestAnimationFrame(step);
+    }
   </script>
 
 </body>
