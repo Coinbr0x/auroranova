@@ -53,7 +53,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.5);
 }
 
 /* ── NAV ── */
@@ -136,11 +136,13 @@ body {
   font-size: 72px; font-weight: 700; line-height: 1.05;
   letter-spacing: -2.5px; color: var(--on-dark);
   margin-bottom: 24px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 .hero h1 .highlight { color: var(--primary); }
 .hero .hero-sub {
-  font-size: 18px; line-height: 1.6; color: var(--body);
+  font-size: 18px; line-height: 1.6; color: #ffffff;
   max-width: 520px; margin-bottom: 32px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
