@@ -304,23 +304,29 @@
             </div>
             <div class="form-row">
               <div class="form-group">
+                <label for="book-phone">Phone Number</label>
+                <input type="tel" id="book-phone" name="phone" required placeholder="e.g. +41 44 123 4567">
+              </div>
+              <div class="form-group">
                 <label for="book-company">Company</label>
                 <input type="text" id="book-company" name="company" placeholder="Your organization">
               </div>
+            </div>
+            <div class="form-row">
               <div class="form-group">
                 <label for="book-date">Preferred Date</label>
                 <input type="date" id="book-date" name="date" required>
               </div>
-            </div>
-            <div class="form-group">
-              <label for="book-model">Model Size</label>
-              <select id="book-model" name="model">
-                <option value="" disabled selected>Select estimated parameters</option>
-                <option value="small">Under 1B parameters</option>
-                <option value="medium">1B – 70B parameters</option>
-                <option value="large">70B – 400B parameters</option>
-                <option value="frontier">400B+ parameters</option>
-              </select>
+              <div class="form-group">
+                <label for="book-model">Model Size</label>
+                <select id="book-model" name="model">
+                  <option value="" disabled selected>Select estimated parameters</option>
+                  <option value="small">Under 1B parameters</option>
+                  <option value="medium">1B – 70B parameters</option>
+                  <option value="large">70B – 400B parameters</option>
+                  <option value="frontier">400B+ parameters</option>
+                </select>
+              </div>
             </div>
             <div class="form-group">
               <label for="book-message">Message (optional)</label>
