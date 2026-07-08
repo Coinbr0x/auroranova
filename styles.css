@@ -57,7 +57,7 @@ body {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.5);
-  z-index: 2; /* Keep dark overlay on top of both videos */
+  z-index: 3; /* Keep dark overlay on top of both videos */
   pointer-events: none;
 }
 
@@ -419,6 +419,20 @@ body {
   padding-top: 24px; border-top: 1px solid var(--hairline);
   display: flex; justify-content: space-between; align-items: center;
   font-size: 13px; color: var(--muted-soft);
+}
+.footer-github {
+  color: var(--muted);
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+.footer-github:hover {
+  color: var(--primary);
+  transform: scale(1.15);
 }
 
 /* ── ANIMATIONS ── */
