@@ -274,11 +274,71 @@
 
   <!-- ══════════════ CTA — ACTION ══════════════ -->
   <section class="section" id="cta">
-    <div class="cta-band">
-      <h2>Ready to train beyond the atmosphere?</h2>
-      <p>Book a 30-minute call with our orbital compute team. We'll design a training plan that fits your model, your
-        timeline, and your budget.</p>
-      <a href="#" class="btn-dark" id="book-call-btn">Book Your Call →</a>
+    <div class="section-glass cta-booking">
+      <div class="cta-booking-grid">
+        <!-- Left: Info -->
+        <div class="cta-info">
+          <div class="section-label">Book a Call</div>
+          <h2 class="section-title">Ready to train beyond the atmosphere?</h2>
+          <p class="section-sub">Book a 30-minute call with our orbital compute team. We'll design a training plan that
+            fits your model, your timeline, and your budget.</p>
+          <div class="cta-perks">
+            <div class="cta-perk"><span class="cta-perk-icon">✓</span> No commitment required</div>
+            <div class="cta-perk"><span class="cta-perk-icon">✓</span> Custom pricing available</div>
+            <div class="cta-perk"><span class="cta-perk-icon">✓</span> Response within 24 hours</div>
+          </div>
+        </div>
+        <!-- Right: Form -->
+        <div class="cta-form-wrap">
+          <!-- Booking Form -->
+          <form id="booking-form" class="booking-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="book-name">Your Name</label>
+                <input type="text" id="book-name" name="name" required placeholder="e.g. Dr. Ada Lovelace">
+              </div>
+              <div class="form-group">
+                <label for="book-email">Email</label>
+                <input type="email" id="book-email" name="email" required placeholder="ada@company.ai">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="book-company">Company</label>
+                <input type="text" id="book-company" name="company" placeholder="Your organization">
+              </div>
+              <div class="form-group">
+                <label for="book-date">Preferred Date</label>
+                <input type="date" id="book-date" name="date" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="book-model">Model Size</label>
+              <select id="book-model" name="model">
+                <option value="" disabled selected>Select estimated parameters</option>
+                <option value="small">Under 1B parameters</option>
+                <option value="medium">1B – 70B parameters</option>
+                <option value="large">70B – 400B parameters</option>
+                <option value="frontier">400B+ parameters</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="book-message">Message (optional)</label>
+              <textarea id="book-message" name="message" rows="3"
+                placeholder="Tell us about your training requirements..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-submit">Request Your Call →</button>
+          </form>
+          <!-- Confirmation -->
+          <div id="booking-confirmation" class="booking-confirmation" style="display: none;">
+            <div class="confirm-icon">✓</div>
+            <h3>Your session is requested</h3>
+            <p id="confirm-message">Thank you. A mission coordinator will contact you shortly to finalize your
+              appointment.</p>
+            <button type="button" id="book-another-btn" class="btn-book-another">Book Another Call</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -362,6 +422,31 @@
         navLinks.style.gap = '16px';
         navLinks.style.backdropFilter = 'blur(16px)';
       }
+    });
+
+    // Booking form handler
+    const bookingForm = document.getElementById('booking-form');
+    const bookingConfirmation = document.getElementById('booking-confirmation');
+    const bookAnotherBtn = document.getElementById('book-another-btn');
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('book-name').value;
+      const email = document.getElementById('book-email').value;
+      const date = document.getElementById('book-date').value;
+      const formattedDate = date ? new Date(date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : 'your selected date';
+
+      document.getElementById('confirm-message').innerHTML =
+        `Thank you, <span class="confirm-name">${name}</span>. A mission coordinator will contact you at <span class="confirm-email">${email}</span> shortly to finalize your appointment for <span class="confirm-date">${formattedDate}</span>.`;
+
+      bookingForm.style.display = 'none';
+      bookingConfirmation.style.display = 'block';
+    });
+
+    bookAnotherBtn.addEventListener('click', () => {
+      bookingForm.reset();
+      bookingConfirmation.style.display = 'none';
+      bookingForm.style.display = 'flex';
     });
 
     // Custom seamless video looping (yoyo) using dual videos
